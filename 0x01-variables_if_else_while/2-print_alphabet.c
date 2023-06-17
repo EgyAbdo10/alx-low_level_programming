@@ -8,7 +8,7 @@
 int main(void)
 {
 char str[] = "abcdefghijklmnopqrstuvwxyz";
-int i = 0;
+unsigned int i = 0;
 while (i < strlen(str))
 {
 putchar(str[i]);
