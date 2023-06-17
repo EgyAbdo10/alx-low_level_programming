@@ -7,6 +7,7 @@
 int main(void)
 {
 char str[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int i;
 for (i = 0; i < strlen(str); i++)
 {
 putchar(str[i]);
