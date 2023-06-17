@@ -7,7 +7,7 @@
 
 int main(void)
 {
-char nums[] = ("0123456789");
+char nums[] = "0123456789";
 unsigned int i;
 for (i = 0; i < strlen(nums); i++)
 {
