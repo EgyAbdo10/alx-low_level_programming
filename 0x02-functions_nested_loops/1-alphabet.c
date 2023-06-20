@@ -1,15 +1,14 @@
 #include "main.h"
 /**
- * main - print the alpahbet
+ * print_alphabet - print the alpahbet
  * Return: (0) success
  */
-int main(void)
+void print_alphabet(void)
 {
-char i; 
-for (i = "a"; i <= "z"; i++)
+int i; 
+for (i = 97; i <= 122;  i++)
 {
 _putchar(i);
 }
-_putchar('\n')
-return (0);
+_putchar('\n');
 }
