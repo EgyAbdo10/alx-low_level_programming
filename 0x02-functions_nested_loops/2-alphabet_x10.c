@@ -1,4 +1,4 @@
-#include "main.h"
+#include "stdio.h"
 /**
  * print_alphabet_x10 - alpha
  * Return - void
@@ -11,8 +11,8 @@ for (i = 0; i < 10; i++)
 {
 for (b = 97; b < 123; b++)
 {
-_putchar(b);
+printf(b);
 }
+printf('\n');
 }
-_putchar('\n');
 }
