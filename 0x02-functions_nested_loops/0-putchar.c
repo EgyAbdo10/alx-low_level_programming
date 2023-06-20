@@ -12,6 +12,6 @@ for(i = 0; i < strlen(text); i++)
 {
 _putchar(text[i]);
 }
-_putchar("\n");
+_putchar('\n');
 return (0);
 }
