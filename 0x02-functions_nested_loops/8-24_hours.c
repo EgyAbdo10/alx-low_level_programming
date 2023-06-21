@@ -13,6 +13,7 @@ int s;
 for (h2 = 0; h2 <= 2; h2++)
 {
 for (h1 = 0; h1 <= 9; h1++)
+{
 if ((h2 <= 1 && h1 <= 9) || (h2 <= 2 && h1 <= 3))
 {
 for (m = 0; m <= 5; m++)
@@ -24,9 +25,11 @@ _putchar(h1 + '0');
 _putchar(58);
 _putchar(m + '0');
 _putchar(s + '0');
+_putchar('\n');
 }
 }
 }
 }
 }
 }
+
