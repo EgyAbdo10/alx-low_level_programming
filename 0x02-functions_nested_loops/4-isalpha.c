@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _isalpha - alpha
- * Return - void
+ * Return: - void
  * @c: the char in ascii
  */
 int _isalpha(int c)
