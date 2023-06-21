@@ -18,6 +18,6 @@ _putchar(res);
 if (b != 9)
 _putchar(44);
 }
-_putchar('\n')
+_putchar('\n');
 }
 }
