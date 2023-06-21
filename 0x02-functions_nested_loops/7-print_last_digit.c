@@ -12,6 +12,6 @@ if (res < 0)
 {
 res = res * -1;
 }
-_putchar(res + "0");
+_putchar(res + '0');
 return (res);
 }
