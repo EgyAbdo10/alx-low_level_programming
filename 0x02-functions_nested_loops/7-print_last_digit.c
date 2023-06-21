@@ -6,21 +6,12 @@
  */
 int print_last_digit(int n)
 {
-if (n > 0)
+int res;
+res = n % 10;
+if (res < 0)
 {
-n = n % 10;
-n *= 11;
-return (n);
+res = res * -1;
 }
-else if (n < 0)
-{
-n *= -1;
-n = n % 10;
-n *= 11;
-return (n);
-}
-else
-{
-return (00);
-}
+_putchar(res + "0");
+return (res);
 }
