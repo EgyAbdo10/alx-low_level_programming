@@ -9,14 +9,32 @@ void times_table(void)
 int i;
 int b;
 int res;
+int fi;
+int se;
 for (i = 0; i <= 9; i++)
 {
 for (b = 0; b <= 9; b++)
 {
 res = i * b;
-_putchar(res);
-if (b != 9)
+if (res > 9)
+{
+fi = res % 10;
+se = (res - fi) / 10;
 _putchar(44);
+_putchar(32);
+_putchar(se + '0');
+_putchar(fi + '0');
+}
+else
+{
+if (res != 0)
+{
+_putchar(44);
+_putchar(32);
+_putchar(res + '0');
+}
+_putchar(res + '0');
+}
 }
 _putchar('\n');
 }
