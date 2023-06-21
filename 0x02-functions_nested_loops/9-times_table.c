@@ -40,7 +40,7 @@ _putchar(44);
 _putchar(32);
 }
 else
-_putchar(res + '0')
+_putchar(res + '0');
 }
 }
 _putchar('\n');
