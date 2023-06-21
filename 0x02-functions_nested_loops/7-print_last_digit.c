@@ -13,7 +13,7 @@ return (n * 11);
 }
 else if (n < 0)
 {
-n *= -1
+n *= -1;
 n = n % 10;
 return (n * 11);
 }
