@@ -1,17 +1,17 @@
 #include "stdio.h"
 /**
  * _islower - alpha
- * Return - void
+ * Return:  0 or 1
  */
 int _islower(int c)
 {
-    int i;
-    for (i = 97; i < 123; i++)
-    {
-        if (i == c)
-        {
-            return (1);
-        }
-    }
-    return (0);
+int i;
+for (i = 97; i < 123; i++)
+{
+if (i == c)
+{
+return (1);
+}
+}
+return (0);
 }
