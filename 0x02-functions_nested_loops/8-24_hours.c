@@ -23,7 +23,7 @@ _putchar(h2 + '0');
 _putchar(h1 + '0');
 _putchar(58);
 _putchar(m + '0');
-_putchar(s + '0')
+_putchar(s + '0');
 }
 }
 }
