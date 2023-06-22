@@ -27,19 +27,12 @@ _putchar(fi + '0');
 }
 else
 {
-if (res != 0)
+if (b != 0)
 {
 _putchar(44);
 _putchar(32);
-_putchar(res + '0');
-}
-if (i != 9)
-{
-_putchar(res + '0');
-_putchar(44);
 _putchar(32);
 }
-else
 _putchar(res + '0');
 }
 }
