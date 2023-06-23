@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_triangle - check the letter case
- * @void: second number
+ * @size: second number
  * Return: 1 if upeer and 0 if lower
  */
 
