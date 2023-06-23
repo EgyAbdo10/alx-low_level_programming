@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 /**
  * main - check the letter case
@@ -8,7 +9,6 @@
 int main(void)
 {
 int i;
-printf("%d ", 0);
 for (i = 1; i <= 100; i++)
 {
 if ((i % 3 == 0) && (i % 5 == 0))
