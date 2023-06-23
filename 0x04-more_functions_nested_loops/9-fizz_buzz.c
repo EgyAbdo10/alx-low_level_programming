@@ -1,11 +1,11 @@
 #include <stdio.h>
 /**
- * fizzbuzz - check the letter case
+ * main - check the letter case
  * @void: second number
  * Return: 1 if upeer and 0 if lower
  */
 
-void fizzbuzz(void)
+int main(void)
 {
 int i;
 printf("%d ", 0);
@@ -33,9 +33,5 @@ printf(" ");
 }
 }
 putchar('\n');
-}
-
-void main(void)
-{
-fizzbuzz();
+return (0);
 }
