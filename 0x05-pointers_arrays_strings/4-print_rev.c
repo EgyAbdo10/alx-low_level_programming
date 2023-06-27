@@ -10,8 +10,8 @@ int length = 0;
 while (s[length] != '\0')
 {
 length++;
-length -= 1;
 }
+length -= 1;
 while (length >= 0)
 {
 _putchar(s[length]);
