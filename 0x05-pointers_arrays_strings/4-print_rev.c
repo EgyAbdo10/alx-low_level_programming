@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_rev - retest the number to 98
+ * print_rev - retdest the number to 98
  * @s: the first number you want to swap
  * Return: void
  */
