@@ -21,7 +21,7 @@ else if (length % 2 == 1)
 {
 i = (length + 1) / 2;
 }
-for (j = 0; j < i; j++)
+for (j = i; j < length; j++)
 {
 _putchar(str[j]);
 }
