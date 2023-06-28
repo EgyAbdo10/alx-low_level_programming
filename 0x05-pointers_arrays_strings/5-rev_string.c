@@ -14,7 +14,7 @@ while (s[length] != '\0')
 length++;
 }
 length -= 1;
-while (length > (j / 2 + 1))
+while (length > (j / 2 + 2))
 {
 temp = s[length];
 s[length] = s[j];
