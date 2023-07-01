@@ -1,8 +1,9 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * print_array - reverse string
  * @a: the integer array
- * @a: the number of elements
+ * @n: the number of elements
  * Return: void
  */
 void print_array(int *a, int n)
