@@ -1,4 +1,10 @@
 #include "main.h"
+/**
+ * reverse_array - cancatenate
+ * @a: first str
+ * @n: second str
+ * Return: the concatenated pointer str
+ */
 void reverse_array(int *a, int n)
 {
 int holder;
