@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h>
 /**
  * _strchr - blabla
  * @s: first
@@ -17,5 +16,5 @@ return (s + i);
 }
 i++;
 }
-return (NULL);
+return (0);
 }
