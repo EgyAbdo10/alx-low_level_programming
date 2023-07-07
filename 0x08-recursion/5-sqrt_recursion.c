@@ -7,11 +7,11 @@
  */
 int find_sqrt(int n, int x)
 {
+int res = x * x;
 if (n < 0)
 {
 return (-1);
 }
-int res = x * x;
 if (n == res)
 {
 return (x);
