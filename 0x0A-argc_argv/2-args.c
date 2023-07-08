@@ -7,8 +7,8 @@
  */
 int main(int argc, char *argv[])
 {
-(void)argc;
 int count;
+(void)argc;
 for (count = 0; count < argc; count++)
 {
 printf("%s\n", argv[count]);

@@ -17,10 +17,11 @@ for (count = 1; count < argc; count++)
 mul *= atoi(argv[count]);
 }
 printf("%d\n", mul);
+return (0);
 }
 else
 {
 printf("Error\n");
+return (1);
 }
-return (0);
 }
