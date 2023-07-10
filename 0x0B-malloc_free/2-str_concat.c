@@ -13,6 +13,13 @@ int i = 0;
 int j = 0;
 int n = 0;
 int f = 0;
+if (s1 == NULL)
+s1 = "";
+if (s2 == NULL)
+{
+s2 = "";
+i++;
+}
 while (s1[i] != 0)
 {
 i++;
@@ -22,7 +29,7 @@ while (s2[j] != 0)
 {
 j++;
 }
-con_str = malloc(i + j + 1);
+con_str = malloc(i + j + 2);
 if (con_str == NULL)
 return (NULL);
 while (n <= i)
