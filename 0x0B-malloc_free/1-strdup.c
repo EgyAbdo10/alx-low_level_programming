@@ -16,7 +16,7 @@ while (str[len] != 0)
 {
 len++;
 }
-new_str = malloc(sizeof(char) * len);
+new_str = malloc(sizeof(char) * len  + 1);
 if (new_str == NULL)
 return (NULL);
 for (i = 0; i <= len; i++)
