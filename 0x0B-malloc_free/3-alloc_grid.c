@@ -16,12 +16,20 @@ if (width <= 0 || height <= 0)
 return (NULL);
 rows = malloc(sizeof(int *) * height);
 if (rows == NULL)
+{
+free(rows);
 return (NULL);
+}
 for (i = 0; i < height; i++)
 {
 rows[i] = malloc(sizeof(int) * width);
 if (rows[i] == NULL)
+{
+for (; i >= 0; i--)
+free(rows[i]);
+free(rows);
 return (NULL);
+}
 }
 for (j = 0; j < height; j++)
 {
