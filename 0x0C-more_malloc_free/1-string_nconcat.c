@@ -33,8 +33,10 @@ if (n >= (i))
 {
 new_str = malloc(sizeof(char) * (all));
 if (new_str == NULL)
+{
 free(new_str);
 return (NULL);
+}
 for (j = 0; j < f; j++)
 {
 new_str[j] = s1[j];
@@ -48,8 +50,10 @@ else if (n < i)
 {
 new_str = malloc(sizeof(char) * (n + i + 1));
 if (new_str == NULL)
+{
 free(new_str);
 return (NULL);
+}
 for (j = 0; j < f; j++)
 {
 new_str[j] = s1[j];
