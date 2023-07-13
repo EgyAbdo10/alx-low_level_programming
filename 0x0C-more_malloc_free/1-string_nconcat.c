@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 /**
  * check_null - create an array of the same char
  * @new_str: the size of the array
@@ -11,6 +10,20 @@ char *check_null(char *new_str)
 if (new_str == NULL)
 new_str = "";
 return (new_str);
+}
+/**
+ * _strlen - create an array of the same char
+ * @str: the size of the array
+ * Return: the final string on success
+ */
+unsigned int _strlen(char *str)
+{
+unsigned int i = 0;
+while (str[i])
+{
+i++;
+}
+return (i);
 }
 /**
  * string_nconcat - create an array of the same char
@@ -26,17 +39,14 @@ unsigned int i, f, j, all, start;
 char *new_str;
 s1 = check_null(s1);
 s2 = check_null(s2);
-i = strlen(s2);
-f = strlen(s1);
+i = _strlen(s2);
+f = _strlen(s1);
 all = i + f + 1;
 if (n >= (i))
 {
 new_str = malloc(sizeof(char) * (all));
 if (new_str == NULL)
-{
-free(new_str);
 return (NULL);
-}
 for (j = 0; j < f; j++)
 {
 new_str[j] = s1[j];
@@ -48,12 +58,9 @@ new_str[j] = s2[i];
 }
 else if (n < i)
 {
-new_str = malloc(sizeof(char) * (n + i + 1));
+new_str = malloc(sizeof(char) * (n + i));
 if (new_str == NULL)
-{
-free(new_str);
 return (NULL);
-}
 for (j = 0; j < f; j++)
 {
 new_str[j] = s1[j];
