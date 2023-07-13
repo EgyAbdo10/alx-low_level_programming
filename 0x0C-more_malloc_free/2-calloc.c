@@ -18,7 +18,7 @@ all = nmemb * size;
 ptr = malloc(all);
 if (ptr == NULL)
 return (NULL);
-while (i < all)
+while (i < nmemb)
 {
 ptr[i] = 0;
 i++;
