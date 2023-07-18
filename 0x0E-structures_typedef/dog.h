@@ -37,4 +37,9 @@ typedef struct dog dog_t;
  * Return: a pointer to the new dog
  */
 dog_t *new_dog(char *name, float age, char *owner);
+/**
+ * free_dog - free memory
+ * @d: the dog
+ */
+void free_dog(dog_t *d);
 #endif
