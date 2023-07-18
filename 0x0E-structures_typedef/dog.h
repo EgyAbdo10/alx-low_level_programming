@@ -29,4 +29,12 @@ void print_dog(struct dog *d);
  * dog_t - the new type of struct dog
  */
 typedef struct dog dog_t;
+/**
+ * new_dog - create a new dog
+ * @name: name
+ * @age: age
+ * @owner: owner
+ * Return: a pointer to the new dog
+ */
+dog_t *new_dog(char *name, float age, char *owner);
 #endif
