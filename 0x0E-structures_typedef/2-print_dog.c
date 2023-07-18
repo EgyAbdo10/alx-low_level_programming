@@ -11,9 +11,9 @@ if (d == NULL)
 exit(98);
 if (d->name == NULL)
 d->name = "(nil)";
+printf("Name: %s\n", d->name);
 if (d->owner == NULL)
 d->owner = "(nil)";
-printf("Name: %s\n", d->name);
 if (d->age == 0)
 printf("Age: (nil)\n");
 else
