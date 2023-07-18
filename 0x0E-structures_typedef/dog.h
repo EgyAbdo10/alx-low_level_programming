@@ -20,5 +20,13 @@ char *owner;
  * @owner: the owner of the dog
  */
 void init_dog(struct dog *d, char *name, float age, char *owner);
+/**
+ * print_dog - initialize a dog abject
+ * @d: the dog object
+ */
 void print_dog(struct dog *d);
+/**
+ * dog_t - the new type of struct dog
+ */
+typedef struct dog dog_t;
 #endif
