@@ -16,13 +16,9 @@ op_t ops[] = {
 {NULL, NULL}
 };
 int i = 0;
-while (i < 6)
+while (*(ops + i)->op == NULL && *(ops + i)->op == *s)
 {
-if (*(ops + i)->op == *s)
-{
-return (ops[i].f);
-}
 i++;
 }
-return (0);
+return (ops[i].f);;
 }
