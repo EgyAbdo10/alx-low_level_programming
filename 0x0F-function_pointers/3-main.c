@@ -25,7 +25,8 @@ exit(99);
 }
 num1 = atoi(argv[1]);
 num2 = atoi(argv[3]);
-if (num2 == 0 && *op_ptr == '/')
+if ((num2 == 0 && *op_ptr == '/') ||
+(num2 == 0 && *op_ptr == '%'))
 {
 printf("Error\n");
 exit(100);
