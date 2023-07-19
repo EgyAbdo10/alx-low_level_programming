@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 int num1, num2;
 int (*ptr)(int, int);
 char *op_ptr;
-if (argc != 4 || num1 == NULL || num2 == NULL)
+if (argc != 4)
 {
 printf("Error\n");
 exit(98);
@@ -20,7 +20,7 @@ exit(98);
 op_ptr = argv[2];
 num1 = atoi(argv[1]);
 num2 = atoi(argv[3]);
-if (op_ptr == NULL || op_ptr[1] != '\0')
+if (get_op_func(op_ptr) == NULL || op_ptr[1] != '\0')
 {
 printf("Error\n");
 exit(99);
