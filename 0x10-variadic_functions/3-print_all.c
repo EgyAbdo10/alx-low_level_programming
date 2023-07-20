@@ -9,7 +9,7 @@ void print_all(const char * const format, ...)
 {
 int di, i = 0;
 double f;
-char *str, c, *sep = "", arr_ch[] = {'c', 'i', 's', 'f'};
+char *str, c, *sep = "";
 va_list args;
 va_start(args, format);
 while (format[i])
