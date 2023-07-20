@@ -19,4 +19,5 @@ printf("%d", x);
 if (i != (n - 1) && separator != NULL)
 printf("%s", separator);
 }
+printf("\n");
 }
