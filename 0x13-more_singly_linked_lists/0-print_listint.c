@@ -12,8 +12,8 @@ size_t count = 0;
 while (h)
 {
 count++;
-printf("%d\n", ptr->n);
-ptr = ptr->next;
+printf("%d\n", h->n);
+h = h->next;
 }
 return (count);
 }
