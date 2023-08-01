@@ -1,17 +1,19 @@
-#include "lists.h"
+#ifndef lists_H
+#define lists_H
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * print_listint - print all elements
- * @h: the head pointer
- * Return: unsigned int with the number of elements
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * 
  */
-size_t print_listint(const listint_t *h)
+typedef struct listint_s
 {
-size_t count = 0;
-while (h)
-{
-count++;
-printf("%d\n", h->n);
-h = h->next;
-}
-return (count);
-}
+    int n;
+    struct listint_s *next;
+} listint_t;
+size_t print_listint(const listint_t *h);
+#endif
