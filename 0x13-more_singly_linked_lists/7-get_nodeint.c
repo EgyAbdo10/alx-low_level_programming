@@ -15,6 +15,8 @@ while (ptr)
 count++;
 ptr = ptr->next;
 }
+if (ptr == NULL)
+return (NULL);
 if (index >= count)
 return (NULL);
 ptr = head;
@@ -23,5 +25,5 @@ while (i < index)
 ptr = ptr->next;
 i++;
 }
-return (ptr ? ptr : NULL);
+return (ptr);
 }
