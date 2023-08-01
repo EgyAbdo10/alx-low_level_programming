@@ -30,5 +30,5 @@ i++;
 new_node_ptr->next = ptr->next;
 ptr->next = new_node_ptr;
 }
-return (new_node_ptr);
+return (new_node_ptr ? new_node_ptr : NULL);
 }
