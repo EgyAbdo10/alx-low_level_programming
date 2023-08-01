@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_nodeint_end - print all elements
+ * free_listint2 - print all elements
  * @head: a pointer to the head pointer
  */
 void free_listint2(listint_t **head)
