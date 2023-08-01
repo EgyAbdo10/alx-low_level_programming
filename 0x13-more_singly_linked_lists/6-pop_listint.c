@@ -2,6 +2,7 @@
 /**
  * pop_listint - print all elements
  * @head: a pointer to the head pointer
+ * Return: the data of the first node
  */
 int pop_listint(listint_t **head)
 {
