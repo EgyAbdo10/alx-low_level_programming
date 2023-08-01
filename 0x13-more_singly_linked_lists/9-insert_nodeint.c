@@ -20,21 +20,20 @@ if (idx == 0 || (*head == NULL && idx == 0))
 new_node_ptr->next = *head;
 *head = new_node_ptr;
 }
-else if ((*head)->next == NULL && idx == 0)
-{
-new_node_ptr->next = *head;
-*head = new_node_ptr;
-return (new_node_ptr);
-}
 else
 {
 while (ptr != NULL && i < idx - 1)
 {
+if (i == idx - 1)
+{
+new_node_ptr->next = ptr->next;
+ptr->next = new_node_ptr;
+return (new_node_ptr);
+}
+else
 ptr = ptr->next;
 i++;
 }
-new_node_ptr->next = ptr->next;
-ptr->next = new_node_ptr;
 }
-return (new_node_ptr);
+return (NULL);
 }
