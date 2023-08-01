@@ -15,8 +15,11 @@ if (new_node_ptr == NULL)
 return (NULL);
 new_node_ptr->n = n;
 new_node_ptr->next = NULL;
-if (*head == NULL && idx == 0)
+if (idx == 0 || (*head == NULL && idx == 0))
+{
+new_node_ptr->next = *head;
 *head = new_node_ptr;
+}
 else if ((*head)->next == NULL && idx == 0)
 {
 new_node_ptr->next = *head;
