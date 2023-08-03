@@ -5,11 +5,11 @@
  * @exp: the exponent
  * Return: the number raised to a specific power
  */
-int power(int base, int exp)
+int power(int num, int exp)
 {
 if (exp == 0)
 return (1);
-return (power(base, exp - 1) * base);
+return (power(num, exp - 1) * num);
 }
 /**
  * binary_to_uint - change binary to a normal number
