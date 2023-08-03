@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * power - raise a number to a specific power
- * @base: the number
+ * @num: the number
  * @exp: the exponent
  * Return: the number raised to a specific power
  */
