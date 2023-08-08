@@ -20,9 +20,7 @@ j = read(fd, len, letters);
 if (j == -1)
 return (0);
 i = write(STDOUT_FILENO, len, j);
-if (i < letters)
-return (0);
 free(len);
 close(fd);
-return (j);
+return (i);
 }
