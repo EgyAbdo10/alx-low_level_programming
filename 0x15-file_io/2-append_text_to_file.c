@@ -12,7 +12,7 @@ if (filename == NULL)
 return (-1);
 if (text_content != NULL)
 {
-while (filename[length])
+for (; filename[length];)
 length++;
 }
 fd = open(filename, O_WRONLY | O_APPEND);
