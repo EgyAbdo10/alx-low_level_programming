@@ -28,12 +28,16 @@ close(fd);
 return (1);
 }
 
+if (chmod(filename, 0664) != 0)
+return (-1);
+
 j = write(fd, text_content, length);
 if (j == -1 || j != length)
 {
 close(fd);
 return (-1);
 }
+
 close(fd);
 return (1);
 }
