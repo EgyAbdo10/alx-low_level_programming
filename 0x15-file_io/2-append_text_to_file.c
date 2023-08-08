@@ -20,5 +20,6 @@ j = write(fd, text_content, length);
 if (fd == -1 || j == -1)
 return (-1);
 close(fd);
+free(text_content);
 return (1);
 }
