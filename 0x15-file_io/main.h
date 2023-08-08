@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <limits.h>
+#include <stdlib.h>
 ssize_t read_textfile(const char *filename, size_t letters);
 /**
  * _putchar - writes the character c to stdout
