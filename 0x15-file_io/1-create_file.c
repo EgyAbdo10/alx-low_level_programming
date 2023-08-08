@@ -20,6 +20,6 @@ return (-1);
 j = write(fd, text_content, i);
 if (j == -1)
 return (-1);
-
+close(fd);
 return (1);
 }
