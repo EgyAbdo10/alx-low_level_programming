@@ -57,4 +57,16 @@ exit(98);
 }
 bytes_to = write(fd_w, buffer, bytes_from);
 if (bytes_to == -1 || fd_w == -1)
-
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+free(buffer);
+exit(99);
+}
+bytes_from = read(fd_r, buffer, 1024);
+fd_w = open(argv[2], O_WRONLY | O_APPEND);
+} while (bytes_from > 0);
+free(buffer);
+_close(fd_r);
+_close(fd_w);
+return (0);
+}
