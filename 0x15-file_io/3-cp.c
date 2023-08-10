@@ -1,42 +1,71 @@
 #include "main.h"
+/**
+ * _close - close files
+ * @fd: file descriptor to the closed file
+ */
+void _close(int fd)
+{
+int res;
+res = close(fd);
+if (res == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+exit(100);
+}
+}
+/**
+ * alloc_mem - allocate memory to a buffer
+ * @file_to: the file to append to
+ * @Return: buffer of size 1024
+ */
+char *alloc_mem(char *file_to)
+{
+char *buffer;
+buffer = malloc(sizeof(char) * 1024);
+if (buffer == NULL)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+exit(99);
+}
+return (buffer);    
+}
+/**
+ * main - copy a file into another
+ * @argc: number of args
+ * @argv: arguments vector
+ * Return: 0 on success
+ */
 int main(int argc, char *argv[])
 {
-    FILE *file_ptr_r;
-    int fd_w;
-    char *buffer;
-    if (argc != 3)
-    {
-        dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
-        exit(97);
-    }
-    buffer = malloc(sizeof(char) * 1024);
-    file_ptr_r = fopen(argv[1], "r");
-    fd_w = open(argv[2], O_WRONLY | O_CREAT , 0664);
-    if (file_ptr_r == NULL)
-    {
-        dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", argv[1]);
-        exit(98);
-    }
-    if (fd_w == -1)
-    {
-        dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
-        exit(99);
-    }
-    while (true)
-    {
-    fgets(buffer, sizeof(buffer), file_ptr_r);
-    write(fd_w, buffer, sizeof(buffer));
-    if (feof(file_ptr_r)) break;
-    }
-    if (fclose(file_ptr_r) != 0)
-    {
-        dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", fileno(file_ptr_r));
-        exit(100);
-    }
-    if (close(fd_w) == -1)
-    {
-        dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", fd_w);
-        exit(100);
-    }
-    return (0);
+int fd_w, fd_r, bytes_from, bytes_to;
+char *buffer;
+if (argc != 3)
+{
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+exit(97);
+}
+buffer = alloc_mem(argv[2]);
+fd_r = open(argv[1], O_RDONLY);
+bytes_from = read(fd_r, buffer, 1024);
+fd_w = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+do {
+if (bytes_from == -1 || fd_r == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+free(buffer);
+exit(98);
+}
+bytes_to = write(fd_w, buffer, bytes_from);
+if (bytes_to == -1 || fd_w == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+exit(99);
+}
+bytes_from = read(fd_r, buffer, 1024);
+fd_w = open(argv[2], O_WRONLY | O_APPEND);
+} while (bytes_from > 0);
+free(buffer);
+_close(fd_r);
+_close(fd_w);
+return (0);
 }
