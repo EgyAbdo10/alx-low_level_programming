@@ -16,7 +16,7 @@ exit(100);
 /**
  * alloc_mem - allocate memory to a buffer
  * @file_to: the file to append to
- * @Return: buffer of size 1024
+ * Return: buffer of size 1024
  */
 char *alloc_mem(char *file_to)
 {
@@ -27,7 +27,7 @@ if (buffer == NULL)
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 exit(99);
 }
-return (buffer);    
+return (buffer);
 }
 /**
  * main - copy a file into another
