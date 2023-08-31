@@ -45,15 +45,24 @@ unsigned int binary_to_uint(const char *b)
 {
 int i = 0;
 unsigned int res = 0;
-if (b == NULL) return (0);
+if (b == NULL)
+return (0);
 int len = my_strlen(b);
 for (; b[i] != '\0'; i++, len--)
 {
-if (b[i] != '1' && b[i] != '0') return (0);
+if (b[i] != '1' && b[i] != '0')
+return (0);
 if (b[i] == '1')
 {
 res += get_exp(2, (len - 1));
-}        
+}
 }
 return (res);
+}
+
+int main(void)
+{
+    int number = binary_to_uint(NULL);
+    printf("%d\n", number);
+    return (0);
 }
