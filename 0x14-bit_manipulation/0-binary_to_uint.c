@@ -59,10 +59,3 @@ res += get_exp(2, (len - 1));
 }
 return (res);
 }
-
-int main(void)
-{
-    int number = binary_to_uint(NULL);
-    printf("%d\n", number);
-    return (0);
-}
