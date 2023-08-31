@@ -33,7 +33,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 unsigned long int temp_num;
 if (index > 63)
-return (0);
+return (-1);
 temp_num = *n >> index;
 if ((temp_num & 1) == 0)
 *n += get_exp(2, index);
