@@ -26,7 +26,7 @@ return (res);
 /**
  * set_bit - set a bit to 1 at a given index
  * @n: a pointer to the number
- * @inedx: the index of the bit
+ * @index: the index of the bit
  * Return: 1 on success or 0 on failure
  */
 int set_bit(unsigned long int *n, unsigned int index)
