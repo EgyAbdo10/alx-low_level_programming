@@ -47,9 +47,9 @@ return (-1);
  */
 void print_binary(unsigned long int n)
 {
-int temp_num = 0;
+unsigned long int temp_num = 0;
 int checker = 0;
-int i = 31;
+int i = 63;
 for (; i >= 0; i--)
 {
 temp_num = n >> i;
