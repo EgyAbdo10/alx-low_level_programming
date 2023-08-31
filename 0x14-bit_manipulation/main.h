@@ -7,4 +7,5 @@ int get_exp(int num, int exp);
 int my_strlen(const char *str);
 void print_binary(unsigned long int n);
 int get_log(int number, int base);
+int _putchar(char c);
 #endif
