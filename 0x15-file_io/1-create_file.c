@@ -11,7 +11,7 @@ if (str == NULL)
 return (-1);
 while (str[len] != '\0')
 len++;
-return(len);
+return (len);
 }
 /**
  * create_file - create a file and put content into  it
