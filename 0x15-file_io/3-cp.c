@@ -42,7 +42,7 @@ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
 fd_r = open(av[1], O_RDONLY);
-fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IROTH);
 if (fd_r == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
