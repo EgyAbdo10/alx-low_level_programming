@@ -19,7 +19,9 @@ con_len_read = read(fd, content, letters);
 if (con_len_read == -1)
 return (0);
 con_len_write = write(STDOUT_FILENO, content, con_len_read);
-if (con_len_write != letters)
+free(content);
+close(fd);
+if (con_len_write != con_len_read)
 return (0);
 else
 return (con_len_write);
