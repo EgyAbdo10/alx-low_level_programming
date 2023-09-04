@@ -13,7 +13,10 @@ while (str[len] != '\0')
 len++;
 return (len);
 }
-
+/**
+ * close_file - close file
+ * @file_descriptor: file descriptor
+ */
 void close_file(int file_descriptor)
 {
 int close_status = close(file_descriptor);
@@ -46,8 +49,7 @@ dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 exit(98);
 }
 con_len_read = read(fd_r, container, 1024);
-do
-{
+do {
 if (con_len_read == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
