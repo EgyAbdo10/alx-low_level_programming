@@ -9,7 +9,7 @@ int my_strlen(char *str)
 int len = 0;
 if (str == NULL)
 return (-1);
-while (str[len] != '\0')
+while (str[len] != '\0' || ((str + len) == NULL))
 len++;
 return (len);
 }
@@ -42,7 +42,7 @@ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
 fd_r = open(av[1], O_RDONLY);
-fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 00664);
+fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR, S_IWUSR, S_IRUSR, S_IWUSR, S_IROTH);
 if (fd_r == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
@@ -55,8 +55,8 @@ if (con_len_read == -1)
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 exit(98);
 }
-con_len_write = write(fd_w, container, 1024);
-if (con_len_write == -1)
+con_len_write = write(fd_w, container, my_strlen(container));
+if (con_len_write != my_strlen(container))
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 exit(99);
@@ -65,5 +65,6 @@ con_len_read = read(fd_r, container, 1024);
 } while (con_len_read != 0);
 close_file(fd_r);
 close_file(fd_w);
+free(container);
 return (0);
 }
