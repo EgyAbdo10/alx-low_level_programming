@@ -51,7 +51,6 @@ int main(int ac, char *av[])
 {
 int fd_r, fd_w, con_len_read, con_len_write;
 char *container;
-mode_t mode = S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IROTH;
 if (ac != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
