@@ -27,6 +27,21 @@ exit(100);
 }
 }
 /**
+ * alloc_mem - allocate memory to a buffer
+ * @filename: the file to write into
+ * Return: buffer of size 1024
+ */
+char *alloc_mem(char *filename)
+{
+char *buf = malloc(sizeof(char) * 1024);
+if (buf == NULL)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+exit(99);
+}
+return (buf);
+}
+/**
  * main - copy file into another
  * @ac: number of args
  * @av: arguments vector
@@ -35,36 +50,33 @@ exit(100);
 int main(int ac, char *av[])
 {
 int fd_r, fd_w, con_len_read, con_len_write;
-char *container = malloc(sizeof(char) * 1024);
+char *container;
+mode_t mode = S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IROTH;
 if (ac != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
+container = alloc_mem(av[2]);
 fd_r = open(av[1], O_RDONLY);
-fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IROTH);
-if (fd_r == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-exit(98);
-}
+fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, mode);
 con_len_read = read(fd_r, container, 1024);
 do {
-if (con_len_read == -1)
+if ((con_len_read == -1) || (fd_r == -1))
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 exit(98);
 }
 con_len_write = write(fd_w, container, my_strlen(container));
-if (con_len_write != my_strlen(container))
+if ((con_len_write != my_strlen(container)) || (fd_w == -1))
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 exit(99);
 }
 con_len_read = read(fd_r, container, 1024);
 } while (con_len_read != 0);
+free(container);
 close_file(fd_r);
 close_file(fd_w);
-free(container);
 return (0);
 }
