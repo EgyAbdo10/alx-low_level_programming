@@ -58,7 +58,7 @@ exit(97);
 }
 container = alloc_mem(av[2]);
 fd_r = open(av[1], O_RDONLY);
-fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 0644);
+fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 con_len_read = read(fd_r, container, 1024);
 do {
 if ((con_len_read == -1) || (fd_r == -1))
@@ -75,7 +75,6 @@ free(container);
 exit(99);
 }
 con_len_read = read(fd_r, container, 1024);
-close_file(fd_w);
 fd_w = open(av[2], O_WRONLY | O_APPEND);
 } while (con_len_read > 0);
 free(container);
