@@ -1,82 +1,73 @@
 #include "main.h"
 /**
- * my_strlen - get the length of a string
- * @str: the string
- * Return: length of the string or -1 (on failure)
+ * _close - close files
+ * @fd: file descriptor to the closed file
  */
-int my_strlen(char *str)
+void _close(int fd)
 {
-int len = 0;
-if (str == NULL)
-return (-1);
-while (str[len] != '\0' || ((str + len) == NULL))
-len++;
-return (len);
-}
-/**
- * close_file - close file
- * @file_descriptor: file descriptor
- */
-void close_file(int file_descriptor)
+int res;
+res = close(fd);
+if (res == -1)
 {
-int close_status = close(file_descriptor);
-if (close_status == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %d", file_descriptor);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 exit(100);
 }
 }
 /**
  * alloc_mem - allocate memory to a buffer
- * @filename: the file to write into
+ * @file_to: the file to append to
  * Return: buffer of size 1024
  */
-char *alloc_mem(char *filename)
+char *alloc_mem(char *file_to)
 {
-char *buf = malloc(sizeof(char) * 1024);
-if (buf == NULL)
+char *buffer;
+buffer = malloc(sizeof(char) * 1024);
+if (buffer == NULL)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 exit(99);
 }
-return (buf);
+return (buffer);
 }
 /**
- * main - copy file into another
- * @ac: number of args
- * @av: arguments vector
- * Return: exit status
+ * main - copy a file into another
+ * @argc: number of args
+ * @argv: arguments vector
+ * Return: 0 on success
  */
-int main(int ac, char *av[])
+int main(int argc, char *argv[])
 {
-int fd_r, fd_w, con_len_read, con_len_write;
-char *container;
-mode_t mode = S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IROTH;
-if (ac != 3)
+int fd_w, fd_r, bytes_from, bytes_to;
+char *buffer;
+if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
-container = alloc_mem(av[2]);
-fd_r = open(av[1], O_RDONLY);
-fd_w = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, mode);
-con_len_read = read(fd_r, container, 1024);
+buffer = alloc_mem(argv[2]);
+fd_r = open(argv[1], O_RDONLY);
+bytes_from = read(fd_r, buffer, 1024);
+fd_w = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 do {
-if ((con_len_read == -1) || (fd_r == -1))
+if (bytes_from == -1 || fd_r == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+free(buffer);
 exit(98);
 }
-con_len_write = write(fd_w, container, my_strlen(container));
-if ((con_len_write != my_strlen(container)) || (fd_w == -1))
+bytes_to = write(fd_w, buffer, bytes_from);
+if (bytes_to == -1 || fd_w == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+free(buffer);
 exit(99);
 }
-con_len_read = read(fd_r, container, 1024);
-} while (con_len_read != 0);
-free(container);
-close_file(fd_r);
-close_file(fd_w);
+bytes_from = read(fd_r, buffer, 1024);
+fd_w = open(argv[2], O_WRONLY | O_APPEND);
+} while (bytes_from > 0);
+free(buffer);
+_close(fd_r);
+_close(fd_w);
 return (0);
 }
+
