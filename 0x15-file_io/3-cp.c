@@ -68,7 +68,7 @@ free(container);
 exit(98);
 }
 con_len_write = write(fd_w, container, con_len_read);
-if ((con_len_write != con_len_read) || (fd_w == -1))
+if ((con_len_write == -1) || (fd_w == -1))
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 free(container);
@@ -77,7 +77,7 @@ exit(99);
 con_len_read = read(fd_r, container, 1024);
 close_file(fd_w);
 fd_w = open(av[2], O_WRONLY | O_APPEND);
-} while (con_len_read != 0);
+} while (con_len_read > 0);
 free(container);
 close_file(fd_r);
 close_file(fd_w);
