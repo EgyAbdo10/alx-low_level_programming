@@ -75,7 +75,6 @@ free(container);
 exit(99);
 }
 con_len_read = read(fd_r, container, 1024);
-close_file(fd_w);
 fd_w = open(av[2], O_WRONLY | O_APPEND);
 } while (con_len_read != 0);
 free(container);
