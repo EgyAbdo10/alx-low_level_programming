@@ -1,4 +1,9 @@
 #include "lists.h"
+/**
+ * get_dll_len - get node at index
+ * @head: the head pointer
+ * Return: the number of nodes
+ */
 unsigned int get_dll_len(dlistint_t *head)
 {
 unsigned int i = 0;
@@ -14,7 +19,7 @@ return (i);
  * get_dnodeint_at_index - get node at index
  * @head: the head pointer
  * @index: the index of the node starting from zero
- * Return a pointer to the node
+ * Return: a pointer to the node
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
