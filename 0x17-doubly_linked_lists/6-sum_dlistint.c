@@ -11,7 +11,7 @@ if (head == NULL)
 return (0);
 while (head != NULL)
 {
-sum++;
+sum = head->n + sum;
 head = head->next;
 }
 return (sum);
