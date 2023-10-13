@@ -1,9 +1,8 @@
 #include "lists.h"
-int get_dll_len(dlistint_t *head)
+unsigned int get_dll_len(dlistint_t *head)
 {
-int i = 0;
+unsigned int i = 0;
 dlistint_t *ptr = head;
-int len;
 while ((ptr) != NULL)
 {
 i++;
@@ -19,7 +18,7 @@ return (i);
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-int i = 0;
+unsigned int i = 0;
 if (get_dll_len(head) <= index)
 return (NULL);
 while (i < index)
