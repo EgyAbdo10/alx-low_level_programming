@@ -1,11 +1,11 @@
 #include "lists.h"
 /**
- * add_empty - add node to an empty list
+ * add_empty_1 - add node to an empty list
  * @head: head
  * @n: the number inside the node
  * Return: a pointer to the newly added node
  */
-dlistint_t *add_empty(dlistint_t *head, int n)
+dlistint_t *add_empty_1(dlistint_t *head, int n)
 {
 head = malloc(sizeof(dlistint_t));
 if (head == NULL)
@@ -27,7 +27,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 dlistint_t *temp, *new;
 if (*head == NULL)
 {
-*head = add_empty(*head, n);
+*head = add_empty_1(*head, n);
 return (*head);
 }
 new = malloc(sizeof(dlistint_t));

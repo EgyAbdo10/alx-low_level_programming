@@ -1,4 +1,5 @@
 #include "lists.h"
+
 /**
  * add_empty - add node to an empty list
  * @head: head
