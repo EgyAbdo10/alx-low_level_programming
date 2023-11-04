@@ -15,7 +15,11 @@ hash_node_t *new = malloc(sizeof(hash_node_t));
 if (new == NULL)
 return (0);
 new_key = strdup(key);
+if (new_key == NULL)
+return (0);
 new_value = strdup(value);
+if (new_value == NULL)
+return (0);
 new->key = new_key;
 new->value = new_value;
 new->next = (ht->array[index]);
