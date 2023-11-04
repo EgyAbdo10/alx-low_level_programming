@@ -14,10 +14,10 @@ char *new_value;
 hash_node_t *new = malloc(sizeof(hash_node_t)), *tmp, *prev;
 if (new == NULL)
 return (0);
-tmp = ht->array[index];
-prev = NULL;
 if (ht == NULL || key == NULL)
 return (0);
+tmp = ht->array[index];
+prev = NULL;
 new_key = strdup(key);
 new_value = strdup(value);
 while (tmp != NULL)
