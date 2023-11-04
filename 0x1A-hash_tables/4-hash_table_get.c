@@ -19,6 +19,5 @@ if (strcmp(tmp->key, key) == 0)
 return ((char *)tmp->value);
 tmp = tmp->next;
 }
-return (NULL);    
+return (NULL);
 }
-
