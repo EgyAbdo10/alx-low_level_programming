@@ -17,7 +17,7 @@ return (0);
 tmp = ht->array[index];
 new_key = strdup(key);
 new_value = strdup(value);
-if (new_key == NULL || (*new_key) == '\0')
+if (ht == NULL || new_key == NULL || (*new_key) == '\0')
 return (0);
 while (tmp != NULL)
 {
