@@ -8,22 +8,29 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-int index = key_index((const unsigned char *)key, ht->size);
+unsigned long int index = key_index((const unsigned char *)key, ht->size);
 char *new_key;
 char *new_value;
-hash_node_t *new = malloc(sizeof(hash_node_t)), *tmp;
+hash_node_t *new = malloc(sizeof(hash_node_t)), *tmp, *prev;
 if (new == NULL)
 return (0);
 tmp = ht->array[index];
+prev = NULL;
+if (ht == NULL || key == NULL)
+return (0);
 new_key = strdup(key);
 new_value = strdup(value);
-if (ht == NULL || new_key == NULL || (*new_key) == '\0')
-return (0);
 while (tmp != NULL)
 {
 if (strcmp(tmp->key, new_key) == 0)
-return (0);
+{
+if (prev != NULL)
+prev->next = tmp->next;
 else
+ht->array[index] = NULL;
+free(tmp);
+}
+prev = tmp;
 tmp = tmp->next;
 }
 new->key = new_key;
