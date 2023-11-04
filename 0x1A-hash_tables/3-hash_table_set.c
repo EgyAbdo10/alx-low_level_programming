@@ -12,7 +12,7 @@ unsigned long int index = key_index((const unsigned char *)key, ht->size);
 char *new_key;
 char *new_value;
 hash_node_t *new, *tmp, *prev;
-if (ht == NULL || key == NULL)
+if (ht == NULL || key == NULL || *key == NULL || value == NULL)
 return (0);
 new = malloc(sizeof(hash_node_t));
 if (new == NULL)
@@ -21,17 +21,16 @@ tmp = ht->array[index];
 prev = NULL;
 new_key = strdup(key);
 new_value = strdup(value);
+if (new_key == NULL || new_value == NULL)
+return (0);
 while (tmp != NULL)
 {
 if (strcmp(tmp->key, new_key) == 0)
 {
-if (prev != NULL)
-prev->next = tmp->next;
-else
-ht->array[index] = NULL;
-free(tmp);
+tmp->value = new_value;
+free(tmp->value);
+return (1);
 }
-prev = tmp;
 tmp = tmp->next;
 }
 new->key = new_key;
