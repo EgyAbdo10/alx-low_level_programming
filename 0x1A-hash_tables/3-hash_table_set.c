@@ -11,15 +11,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 int index = key_index((const unsigned char *)key, ht->size);
 char *new_key;
 char *new_value;
-hash_node_t *new = malloc(sizeof(hash_node_t));
+hash_node_t *new = malloc(sizeof(hash_node_t)), *tmp;
 if (new == NULL)
 return (0);
+tmp = ht->array[index];
 new_key = strdup(key);
-if (new_key == NULL)
-return (0);
 new_value = strdup(value);
-if (new_value == NULL)
+while (tmp != NULL)
+{
+if (strcmp(tmp->key, new_key) == 0)
 return (0);
+tmp = tmp->next;
+}
 new->key = new_key;
 new->value = new_value;
 new->next = (ht->array[index]);
