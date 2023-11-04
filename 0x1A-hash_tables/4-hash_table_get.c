@@ -7,7 +7,7 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-unsigned long int index = key_index(hash_djb2(key), ht->array);
+unsigned long int index = key_index((const unsigned char *)key, ht->size);
 hash_node_t *tmp = ht->array[index];
 while (tmp != NULL)
 {
