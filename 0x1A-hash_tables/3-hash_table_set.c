@@ -1,20 +1,19 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "hash_tables.h"
-/**
- * hash_table_set - insert a node into a hash table
- * @ht: a pointer to the hash table
- * @key: the key of the node
- * @value: the value of the node
- * Return: 1 on success, 0 otherwise
- */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+int main(void)
 {
-int index = key_index((const unsigned char *)key, ht->size);
-hash_node_t *new = malloc(sizeof(hash_node_t));
-if (new == NULL)
-return (0);
-new->key = (char *)key;
-new->value = (char *)value;
-new->next = (ht->array[index]);
-ht->array[index] = new;
-return (1);
+    // hetairas collides with mentioner
+    // heliotropes collides with neurospora
+    hash_table_t *ht;
+    // hash_node_t tmp;
+    ht = hash_table_create(1024);
+    hash_table_set(ht, "betty", "cool");
+    hash_table_set(ht, "hetairas", "not cool");
+    hash_table_set(ht, "heliotropes", "not so cool");
+    printf("%ld----%s\n", key_index((unsigned char *)"hetairas", ht->size), (ht->array[key_index((unsigned char *)"hetairas", ht->size)]->key));
+    printf("%ld----%s\n", key_index((unsigned char *)"heliotropes", ht->size), (ht->array[key_index((unsigned char *)"heliotropes", ht->size)]->key));
+
+    return (EXIT_SUCCESS); 
 }
