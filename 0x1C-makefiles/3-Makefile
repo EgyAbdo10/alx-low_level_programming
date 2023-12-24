@@ -21,4 +21,4 @@ oclean:
 fclean:
 	$(RM) -f $(NAME) $(OBJ) .*.SWO .*SW* *~
 
-re: $(oclean) $(all)
+re: oclean all
