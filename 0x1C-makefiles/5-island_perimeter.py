@@ -21,4 +21,6 @@ def island_perimeter(grid):
             else:
                 width = grid[j - 1].count(1)
                 break
+        if j == len(grid) - 1:
+            width = grid[j - 1].count(1)
     return (width + height) * 2
