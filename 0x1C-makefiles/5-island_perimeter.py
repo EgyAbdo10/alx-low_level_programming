@@ -13,7 +13,7 @@ def island_perimeter(grid):
         if 1 in grid[i]:
             index = grid[i].index(1)
             break
-    if index > 0:
+    if index >= 0:
         height += 1
         for j in range(i + 1, len(grid)):
             if 1 == grid[j][index]:
