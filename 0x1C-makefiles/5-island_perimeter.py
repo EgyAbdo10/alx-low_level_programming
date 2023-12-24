@@ -11,11 +11,12 @@ def island_perimeter(grid):
     total_boxes = 0
     if len(grid[0]) < len(grid):
         n_iteration = len(grid[0])
-    for i in range(n_iteration):
+    for i in range(len(grid)):
         total_boxes += grid[i].count(1)
         for row_index in range(len(grid[i]) - 1):
             if (grid[i][row_index] == 1 and grid[i][row_index + 1] == 1):
                 connections += 1
+    for i in range(len(grid[0])):         
         for col_idx in range(len(grid) - 1):
             if (grid[col_idx][i] == 1 and grid[col_idx + 1][i] == 1):
                 connections += 1
