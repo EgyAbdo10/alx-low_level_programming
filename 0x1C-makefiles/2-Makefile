@@ -1,7 +1,7 @@
 NAME = school
 CC = gcc
 SRC = %.C
-OBJ = %.o
+OBJ = $(SRC:.o)
 
 all: $(OBJ)
 
