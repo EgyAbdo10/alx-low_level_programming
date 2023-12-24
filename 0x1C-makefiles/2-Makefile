@@ -1,0 +1,8 @@
+NAME = school
+CC = gcc
+SRC = %.C
+OBJ = %.o
+
+all: $(OBJ)
+
+%.o: %.c
