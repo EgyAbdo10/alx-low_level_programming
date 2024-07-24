@@ -20,7 +20,7 @@ probe = low_idx + (((double)(high_idx - low_idx) / (array[high_idx]
  * ((value - array[low_idx]) / (array[high_idx] - array[low_idx]))
  * * (high_idx - low_idx);
 */
-if (probe > (int)size - 1)
+if (probe > high_idx)
 {
 printf("Value checked array[%d] is out of range\n", probe);
 return (-1);
