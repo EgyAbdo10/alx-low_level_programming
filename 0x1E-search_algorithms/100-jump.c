@@ -20,8 +20,13 @@ while (high_idx < (int)size - 1)
 {
 if (value <= array[high_idx] && value >= array[low_idx])
 {
+if (value == array[low_idx])
+printf("Value checked array[%d] = [%d]\n", low_idx, array[low_idx]);
+printf("Value found between indexes [%d] and [%d]\n",
+array[low_idx], array[high_idx]);
 for (i = low_idx; i <= high_idx; i++)
 {
+printf("Value checked array[%d] = [%d]\n", i, array[i]);
 if (value == array[i])
 return (i);
 }
@@ -29,6 +34,8 @@ return (-1);
 }
 else
 {
+printf("Value checked array[%d] = [%d]\n", low_idx, array[low_idx]);
+printf("Value checked array[%d] = [%d]\n", high_idx, array[high_idx]);
 low_idx += m;
 high_idx += m;
 }
